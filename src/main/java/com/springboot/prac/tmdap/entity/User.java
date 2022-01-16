@@ -2,10 +2,7 @@ package com.springboot.prac.tmdap.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -21,4 +18,9 @@ public class User {
 
     @Column(name = "UNIT_ID")
     private String unitId;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "UNIT_ID", insertable = false, updatable = false)
+    private Unit unit;
+
 }
