@@ -25,6 +25,12 @@ CREATE TABLE T_SYS_UNIT(
     SUPERIOR_UNIT_ID NVARCHAR2(22)
 );
 
+CREATE TABLE T_SYS_USER_ROLE(
+  ID NVARCHAR2(50) NOT NULL PRIMARY KEY,
+  USER_ID NVARCHAR2(22) NOT NULL,
+  ROLE_ID NVARCHAR2(22)
+);
+
 CREATE TABLE T_TMD_TASK_TYPE(
                                 TASK_TYPE_ID NVARCHAR2(50) NOT NULL PRIMARY KEY,
                                 TASK_TYPE_NAME NVARCHAR2(50) NOT NULL
@@ -73,12 +79,20 @@ insert into T_SYS_USER values('test3', 'test3Name', 'unitId2');
 insert into T_SYS_USER values('test4', 'test4Name', 'unitId2');
 insert into T_SYS_USER values('test5', 'test5Name', 'unitId3');
 insert into T_SYS_USER values('test6', 'test6Name', 'unitId4');
-
+insert into T_SYS_USER values('test7', 'test7Name', 'unitId1');
 
 insert into T_SYS_UNIT values('unitId1', 'IT一科', 'superiorId1');
 insert into T_SYS_UNIT values('unitId2', 'IT二科', 'superiorId1');
 insert into T_SYS_UNIT values('unitId3', 'Test一科', 'superiorId2');
 insert into T_SYS_UNIT values('unitId4', 'Test二科', 'superiorId2');
+insert into T_SYS_UNIT values('unitId5', 'Test系統維運一科', 'superiorId3');
+insert into T_SYS_UNIT values('superiorId1', 'IT部', '');
+insert into T_SYS_UNIT values('superiorId2', 'Test部', '');
+insert into T_SYS_UNIT values('superiorId3', 'Test系統維運部', '');
+
+insert into T_SYS_USER_ROLE values('001', 'test1', 'ROLE_EMPLOYEE');
+insert into T_SYS_USER_ROLE values('002', 'test2', 'ROLE_EMPLOYEE');
+insert into T_SYS_USER_ROLE values('003', 'test7', 'ROLE_SUPERVISOR');
 
 -- insert into T_TMD_TASK_TYPE values('taskTypeId001', 'taskType001');
 -- insert into T_TMD_TASK_TYPE values('taskTypeId002', 'taskType002');
